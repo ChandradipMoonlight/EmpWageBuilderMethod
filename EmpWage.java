@@ -4,13 +4,9 @@ public class EmpWage {
 	
 	public static final int IS_FULL_TIME=1;
 	public static final int IS_PART_TIME=2;
-	public static final int WAGE_PER_HR=20;
-	public static final int MAX_WORKING_DAYS=20;
-	public static final int MAX_HR_IN_MONTH=100;
+
 	
-	public static void main(String[] args) {
-		
-		
+	public static int calculateEmpWageForCompany(String company, int wagePerHr, int maxWorkingHr, int maxWorkingDays) {
 		
 		int totalWage=0;
 		int totalWorkingDays=0;
@@ -21,7 +17,7 @@ public class EmpWage {
 		
 		
 		
-		while (totalWorkingDays<MAX_WORKING_DAYS && totalHr<MAX_HR_IN_MONTH) {
+		while (totalWorkingDays<maxWorkingDays && totalHr<maxWorkingHr) {
 			int empHr=0;
 			totalWorkingDays++;
 			
@@ -39,12 +35,24 @@ public class EmpWage {
 		}
 		totalHr += empHr;
 		
-		int dailyWage=empHr*WAGE_PER_HR;
+		int dailyWage=empHr*wagePerHr;
 		System.out.println("Daily Wage ="+dailyWage);
 		
 		}
-		totalWage=totalHr*WAGE_PER_HR;
-		System.out.println("Total wage for month = "+totalWage);
+		totalWage=totalHr*wagePerHr;
+		System.out.println("Total Employee Wage for company:"+company+" is "+totalWage);
+		return totalWage;
+		
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		calculateEmpWageForCompany("Demart", 5, 25, 25);
+		calculateEmpWageForCompany("Reliance", 5, 25, 20);
+		
+		
+		
 	}
 	
 }
