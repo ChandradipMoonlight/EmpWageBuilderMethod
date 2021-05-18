@@ -48,8 +48,9 @@ public class EmpWage {
 	
 	
 	public static void main(String[] args) {
-		calculateEmpWageForCompany("Demart", 5, 25, 25);
-		calculateEmpWageForCompany("Reliance", 5, 25, 20);
+		calculateEmpWageForCompany("Demart", 100, 208, 26);
+		calculateEmpWageForCompany("Reliance", 120, 208, 26);
+		calculateEmpWageForCompany("zfTech", 150, 200, 25);
 		
 		
 		
