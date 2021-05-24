@@ -38,7 +38,7 @@ public class EmpWageBuilderForCompany {
 			case IS_PART_TIME:
 				empHr = 4;
 				break;
-			default:
+ 			default:
 				empHr = 0;
 			}
 			totalHr += empHr;
