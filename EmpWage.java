@@ -5,20 +5,26 @@ public class EmpWage {
 	public static final int IS_FULL_TIME=1;
 	public static final int IS_PART_TIME=2;
 	
-	public static int calculateEmpWageForCompany(String company, int wagePerHr, int maxWorkingHr, int maxWorkingDays) {
-		
-		int totalWage=0;
+	private final  String company;
+	private final int empRatePerHr;
+	private final int maxWorkingDays;
+	private final int maxWorkingHrPerMonth;
+	private int totalEmpWage;
+	
+	public EmpWage(String company, int empRatePerHr, int maxWorkingDays, int maxWorkingHrPerMonth) {
+		this.company = company;
+		this.empRatePerHr = empRatePerHr;
+		this.maxWorkingDays = maxWorkingDays;
+		this.maxWorkingHrPerMonth = maxWorkingHrPerMonth;
+	}
+	public void calculateEmpWageForCompany() {
 		int totalWorkingDays=0;
 		int totalHr=0;
-		
-		System.out.println("Wellcome to the Employee Wage computation program.");
-		
-		while (totalWorkingDays<maxWorkingDays && totalHr<maxWorkingHr) {
-			int empHr=0;
+		int empHr;
+		while (totalWorkingDays<maxWorkingDays && totalHr<maxWorkingHrPerMonth) {
+			empHr=0;
 			totalWorkingDays++;
-			
 			int checkEmp = (int) (Math.random()*3);
-			
 		switch (checkEmp) {
 		case IS_FULL_TIME :
 			empHr=8;
@@ -31,17 +37,17 @@ public class EmpWage {
 		}
 		totalHr += empHr;
 		
-		int dailyWage=empHr*wagePerHr;
+		int dailyWage=empHr*empRatePerHr;
 		System.out.println("Daily Wage ="+dailyWage);
 		
 		}
-		totalWage=totalHr*wagePerHr;
-		System.out.println("Total Employee Wage for company:"+company+" is "+totalWage);
-		return totalWage;
+		totalEmpWage=totalHr*empRatePerHr;
+		System.out.println("Total Employee Wage for company:"+company+" is "+totalEmpWage);
 	}
 	public static void main(String[] args) {
-		calculateEmpWageForCompany("Demart", 100, 208, 26);
-		calculateEmpWageForCompany("Reliance", 120, 208, 26);
-		calculateEmpWageForCompany("zfTech", 150, 200, 25);	
+		EmpWage dMart = new EmpWage("DMart", 50, 5, 26);
+		EmpWage reliance = new EmpWage("reliance", 20, 5,25);
+		dMart.calculateEmpWageForCompany();
+		reliance.calculateEmpWageForCompany();
 	}
 }
