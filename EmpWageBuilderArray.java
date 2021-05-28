@@ -9,18 +9,17 @@ public class EmpWageBuilderArray {
 	public EmpWageBuilderArray() {
 		companyEmpWageArray = new EmpWage[5];
 	}
+	
 	void addCompanyEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
 		companyEmpWageArray[numOfCompany] = new EmpWage(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
 		numOfCompany++;
-		
 	}
-
+	
 	public void computeEmpWage() {
 	for (int i =0; i < numOfCompany; i++) {
 		companyEmpWageArray[i].setTotalEmpWage(this.computeEmpWage(companyEmpWageArray[i]));
 		System.out.println(companyEmpWageArray[i]);
-	}
-		
+	}	
 	}
 	private int computeEmpWage(EmpWage companyEmpWage) {
 		//Variables
